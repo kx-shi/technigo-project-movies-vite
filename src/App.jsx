@@ -1,11 +1,12 @@
 // Hanna - Implement routing for movies
 
 import React from 'react';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import  { MovieDetails } from './components/MovieDetails';
 import  { MovieThumbnail } from './components/MovieThumbnail';
 import Loading from './components/Loading';
+import PageNotFound from './components/NotFoundPage';
 
 export const App = () => {
   const API_KEY = "";
@@ -29,7 +30,7 @@ export const App = () => {
     fetch(apiUrl)
     .then((res) => res.json())
     .then((data) => setmovieList(data.results))
-    .finally(()=>   setLoading(false)), 1000*/
+    .finally(()=>   setLoading(false)), 1000))*/
   };
   
   useEffect(() => {
@@ -41,6 +42,8 @@ export const App = () => {
     <Routes>
       <Route path="/" element={loading ? <Loading/>: <MovieThumbnail props={movieList}/>}/>
       <Route path="/movieDetails/:movieId" element={<MovieDetails />}/> 
+      <Route path="/404"  element={<PageNotFound/>} />
+      <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
     </BrowserRouter>
   )
