@@ -9,7 +9,7 @@ import Loading from './components/Loading';
 import PageNotFound from './components/NotFoundPage';
 
 export const App = () => {
-  const API_KEY = "";
+  const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   const [movieList, setmovieList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -41,7 +41,7 @@ export const App = () => {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={loading ? <Loading/>: <MovieThumbnail props={movieList}/>}/>
-      <Route path="/movieDetails/:movieId" element={<MovieDetails />}/> 
+      <Route path="/movieDetails/:movieId" element={<MovieDetails api_key={API_KEY}/>}/> 
       <Route path="/404"  element={<PageNotFound/>} />
       <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
