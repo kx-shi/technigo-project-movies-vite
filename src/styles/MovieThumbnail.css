@@ -1,0 +1,59 @@
+.movie-thumbnail-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+  }
+  .img {
+    vertical-align: bottom;
+  }
+  a {
+    background-color: black;
+    width: 100%;
+  }
+  .movie-title {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:rgba(1,1,1,0.7);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .2s, visibility .2s;v
+}
+.movie-thumbnail-container:hover .movie-title {
+    visibility: visible;
+    opacity: 1;
+  }
+.movie-title-p {
+    transition: .2s;
+    transform: translateY(1em);
+    text-align: center;
+}
+  
+
+
+@media (min-width: 820px) {
+a {
+    width: 25%;
+}
+}
+@media (min-width: 570px) {
+a {
+    width: 33.33%;
+}
+}
+@media (min-width: 370px) {
+a {
+    width: 50%;
+}
+}
+
+
+
+
