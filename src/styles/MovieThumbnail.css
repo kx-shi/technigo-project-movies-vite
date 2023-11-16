@@ -19,6 +19,7 @@
   right: 0;
   background:rgba(1,1,1,0.7);
   color: #fff;
+  word-wrap: break-word; 
   visibility: hidden;
   opacity: 0;
   display: flex;
